@@ -1,8 +1,8 @@
-const nfetch = require("node-fetch");
+const fetch = require("node-fetch");
 var Qty = require("js-quantities");
 const fs = require("fs");
 
-nfetch(
+fetch(
   "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22"
 )
   .then(res => res.json())
