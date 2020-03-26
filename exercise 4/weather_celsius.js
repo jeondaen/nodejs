@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const Qty = require("js-quantities");
+var Qty = require("js-quantities");
 const fs = require("fs");
 
 fetch(
@@ -10,10 +10,7 @@ fetch(
     const temparatureInKelvin = jsonObj.main.temp;
     const temparatureInCelcius = Qty(temparatureInKelvin + "tempK").format("tempC");
 
-    fs.writeFileSync(
-      "etc/temperature_log.txt",
-      "temperature : " + temparatureInCelcius
-    );
+    fs.writeFileSync("etc/temperature_log.txt", "temperature : " + temparatureInCelcius);
   })
   .catch(err => {
     console.log(err);
