@@ -1,9 +1,11 @@
 const http = require('http');
 
-var server = http.createServer((req, res) => {
+http.createServer((req, res) => {
    if(req.method === 'GET') {
        if(req.url === '/') {
-           console.log('Hello world!');
+           res.setHeader('Content-Type', 'text/html;');
+           res.write('Hello World!');
+           res.end();
        }
    }
 }).listen(80);
