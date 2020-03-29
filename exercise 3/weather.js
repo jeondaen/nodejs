@@ -7,8 +7,10 @@ fetch(
   .then(res => res.json())
   .then(json => {
     if (json) {
-      desc = json.weather[0].description;
+      const weatherDescription = json.weather[0].description;
+      
+      if(!fs.existsSync('./etc')) fs.mkdir('etc', () => {});
 
-      fs.writeFileSync("etc/weather_logs.txt", desc);
+      fs.writeFileSync("etc/weather_logs.txt", weatherDescription);
     }
   });
