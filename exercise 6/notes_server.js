@@ -15,7 +15,9 @@ http.createServer((req, res) => {
             fs.readFile('memo.txt', (err, data) => {
                 if(err) throw err;
 
-                console.log(JSON.parse(data.toString()));
+                res.setHeader('Content-Type', 'text/html;');
+                res.write(data);
+                res.end();
             })
         }
     }
