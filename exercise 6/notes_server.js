@@ -2,15 +2,18 @@ const http = require('http');
 const fs = require('fs');
 
 const memo = [];
-
+let body;
 http.createServer((req, res) => {
     if(req.method === 'POST') {
         if(req.url === '/add') {
             req.on('data', (data) => {
-                data = data.toString();
 
                 memo.push(data);
-            })
+
+            }).on('end', () => {
+                const fullBody = Buffer.concat(memo).toString();
+                body = fullBody;
+            });
         }
     }
 
@@ -18,7 +21,7 @@ http.createServer((req, res) => {
         if(req.url === '/list') {
 
                 res.setHeader('Content-Type', 'text/html;');
-                res.write(memo.toString());
+                res.write(body);
                 res.end();
         }
     }
