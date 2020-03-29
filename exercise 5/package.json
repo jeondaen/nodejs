@@ -1,10 +1,10 @@
 {
-  "name": "exercise-3",
+  "name": "exercise-5",
   "version": "1.0.0",
   "description": "",
-  "main": "weather.js",
+  "main": "hello_server.js",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "http": "^0.0.0"
   },
   "devDependencies": {},
   "scripts": {
